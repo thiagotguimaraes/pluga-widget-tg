@@ -22,7 +22,15 @@ export class WidgetComponent implements OnChanges {
     const currentObject: SimpleChange = changes['currentObject'];
     if (currentObject.currentValue != undefined) {
       this.currentList = currentObject.currentValue.automationList;
+      this._currentObject = currentObject.currentValue;
     }
   }
 
+  // Function used to compute url parameter in button "Ver todas as automatizações do....."
+  computeApiId(api_id) {
+    if (api_id != "popular") {
+      return api_id;
+    }
+    return null;
+  }
 }

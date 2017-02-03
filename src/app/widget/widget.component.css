@@ -1,6 +1,5 @@
 /*styles for home content only*/
 
-
 .automation-item {
     border-radius: 3px;
     background-clip: padding-box;
@@ -77,11 +76,44 @@
 }
 
 .fa-angle-right:before {
+    font-family: FontAwesome;
     content: "\F105";
 }
 
 *, :after, :before {
     box-sizing: border-box;
+}
+
+.powered-by-pluga {
+    display: table;
+    margin: 20px auto 0;
+}
+
+.fa-heart:before {
+    content:  "\F004";
+}
+
+.powered-by-pluga>span {
+    font-family: proxima-nova,sans-serif;
+    font-size: .9em;
+    color: #999;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.powered-by-pluga > span > i {
+    color: #d14233;
+    animation: pulse 1s linear infinite;
+}
+
+.logo {
+    width: 80px;
+    height: 40px;
+    display: table-cell;
+    padding-left: 0;
+    margin-left: 5px;
+    position: relative;
+    text-align: center;
 }
 
 .automation-title {
@@ -93,14 +125,14 @@
     width: 55%;
     min-height: 80px;
     height: auto;
-    padding: .75em 0px .75em 30px;
+    padding: .1em 0px .75em 30px;
 }
 
 .automation-button {
     transition: all .3s ease-in-out;
     border-radius: 40px;
     background-clip: padding-box;
-    background-color: #41baff;
+    /*background-color: #41baff;*/
     color: #fff;
     text-transform: uppercase;
     padding: .9em 2em;
@@ -120,4 +152,25 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+}
+
+.button-all-autos {
+    transition: all .3s ease-in-out;
+    border-radius: 40px;
+    background-clip: padding-box;
+    /*background-color: #41baff;*/
+    color: #fff;
+    text-transform: uppercase;
+    padding: .9em 2em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    outline: none;
+    font-family: proxima-nova,sans-serif;
+    font-weight: 600;
+    margin: 30px auto 0;
+    display: table;
+    padding: 1.2em 2em;
 }

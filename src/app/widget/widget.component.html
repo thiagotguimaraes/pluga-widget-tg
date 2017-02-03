@@ -1,4 +1,5 @@
-<template ngFor let-automation [ngForOf]="currentList">
+<template [ngIf]="currentObject">
+    <!--<template ngFor let-automation [ngForOf]="currentList">-->
     <!--<div class="item">
         <div class="pic item_prop">
             <div class="name">{{automation.slug}}</div>
@@ -13,8 +14,8 @@
         </div>
     </div>-->
 
-    <div class="automation-item">
-        <div class="automation-apps-container pag_seguro-google_sheets-automatization">
+    <div class="automation-item" *ngFor="let automation of currentList">
+        <div class="automation-apps-container">
             <div class="automation-app {{automation.source}}">
                 <img src="https://widget.pluga.co/img/icons-tools-page/{{automation.source}}-icon.svg" alt="{{automation.slug}} - Pluga">
             </div>
@@ -26,7 +27,15 @@
         <div class="automation-title">
             <p>{{automation.description}}</p>
         </div>
-        <a class="automation-button" target="_blank" href="https://pluga.co{{automation.url}}">Automatizar</a>
+        <a class="automation-button {{currentObject.app_id}}" target="_blank" href="https://pluga.co{{automation.url}}">Automatizar</a>
     </div>
 
+    <!--</template>-->
+    <a class="button-all-autos  {{currentObject.app_id}}" target="_blank" href="https://pluga.co/ferramentas/{{computeApiId(currentObject.app_id)}}">Ver todas as automatizações do {{currentObject.name}}</a>
+    <div class="powered-by-pluga">
+        <span>feito com <i class="fa fa-heart"></i> pela</span>
+        <a href="https://pluga.co/" target="_blank">
+            <img alt="Pluga" class="logo" src="../../assets/img/pluga-logo-blue.svg">
+        </a>
+    </div>
 </template>

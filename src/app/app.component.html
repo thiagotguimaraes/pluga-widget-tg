@@ -1,12 +1,14 @@
-<div class="main-wrapper">
-    <main class="div-wrapper">
-        <router-outlet>
-            <template [ngIf]="!pageNotFound">
+<main>
+    <router-outlet>
+    </router-outlet>
+    <template [ngIf]="!pageNotFound">
+        <div class="main-wrapper">
+            <div class="div-wrapper">
                 <widget [currentObject]="currentObject"></widget>
-            </template>
-            <template [ngIf]="pageNotFound">
-                <no-content></no-content>
-            </template>
-        </router-outlet>
-    </main>
-</div>
+            </div>
+        </div>
+    </template>
+    <template [ngIf]="pageNotFound">
+        <no-content></no-content>
+    </template>
+</main>

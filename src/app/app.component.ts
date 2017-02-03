@@ -48,24 +48,27 @@ export class AppComponent implements OnInit {
       }
       return null;
     }).subscribe((res) => {
-      console.log("url parameter: " + res)
-      if (this._dataDidLoaded()) {
-        this._getTargetObject(this.data);
-      } else {
-        this.appService.getMockData(this.url).subscribe(data => {
-          this.data = data;
-          this.dataLoaded = true;
-          this._getTargetObject(data);
-        }, error => {
-          console.log("Erro: " + error);
-          this.pageNotFound = true;
-        })
+      if (res != null) {
+        if (this._dataDidLoaded()) {
+          this._getTargetAutomationGroup(this.data);
+        } else {
+          this.appService.getMockData(this.url).subscribe(data => {
+            this.data = data;
+            this.dataLoaded = true;
+            this._getTargetAutomationGroup(data);
+          }, error => {
+            console.log("Erro: " + error);
+            this.dataLoaded = false;
+            this.pageNotFound = true;
+          })
+        }
+
       }
     });
   }
 
 
-  private _getTargetObject(data) {
+  private _getTargetAutomationGroup(data) {
     if (data) {
       for (let i = 0; i < data.length; i++) {
         if (data[i]['app_id'] === this.source) {
@@ -88,7 +91,6 @@ export class AppComponent implements OnInit {
       return false
     }
   }
-
 
 }
 
