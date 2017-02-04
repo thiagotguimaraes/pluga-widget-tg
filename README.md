@@ -34,8 +34,7 @@
              └──widget.component.html/         * Widget component html structure
 
 
-```
-```
+---- EXPLANATION ----
 
 1 - app.component.ts on ngOnInit listen for router events
 2 - when navigation finishs app.component.ts looks for app_id 
