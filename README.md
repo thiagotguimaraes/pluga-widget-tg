@@ -35,7 +35,7 @@
 
 
 ```
-
+```
 
 1 - app.component.ts on ngOnInit listen for router events
 2 - when navigation finishs app.component.ts looks for app_id 
@@ -49,7 +49,7 @@
 
 **PS: Router is using /#/ in URL but it can be removed in app.module.ts 
     ---> RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-
+```
 
 
 
