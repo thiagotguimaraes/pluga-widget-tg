@@ -1,7 +1,7 @@
 ### Code Explanation
 
 **src structure**
-
+```
  ├──src/                           
      ├──index.html                             * Index.html: where we generate our index page
      │
@@ -33,6 +33,8 @@
              ├──widget.component.ts/           * Widget component controller
              └──widget.component.html/         * Widget component html structure
 
+
+```
 
 
 1 - app.component.ts on ngOnInit listen for router events
