@@ -15,4 +15,30 @@ export class AppConstantService {
       },
     }
   }
+
+  public static GENDER() {
+    return {
+      "Pluga": "female",
+      "iugu": "female",
+      "Pagar.me": "male",
+      "PagSeguro": "male",
+      "Moip": "male",
+      "Stripe": "male",
+      "PayPal": "male",
+      "MercadoPago": "male",
+      "GoogleSheets": "male",
+      "Nibo": "male",
+      "Slack": "male",
+      "Mandrill": "male",
+      "Mailchimp": "male",
+      "RD Station": "male",
+      "NFe.io": "male",
+      "Typeform": "male",
+      "Pipedrive": "male",
+      "BoletoSimples": "male",
+      "PlugCRM": "male",
+      "LAHAR": "male",
+      "TotalVoice": "male"
+    }
+  }
 }

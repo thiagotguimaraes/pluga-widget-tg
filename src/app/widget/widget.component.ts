@@ -1,5 +1,7 @@
 import { AutomationGroup } from './../model/entities/automation-group';
 import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { AppConstantService } from '../service/app-constant-service';
+import { AutomationGroupService } from '../service/automation-group-service';
 
 console.log('`Widget` component loaded asynchronously');
 
@@ -14,11 +16,13 @@ export class WidgetComponent implements OnChanges {
   @Input() currentObject: AutomationGroup;
   private _currentObject: AutomationGroup;
   public currentList: Array<Object>;
+  public appConstantService: AppConstantService;
+
 
   // TypeScript public modifiers
-  constructor() { }
+  constructor(public automationGroupService: AutomationGroupService) { }
 
-  ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges(changes: SimpleChanges) {
     const currentObject: SimpleChange = changes['currentObject'];
     if (currentObject.currentValue != undefined) {
       this.currentList = currentObject.currentValue.automationList;
@@ -27,10 +31,11 @@ export class WidgetComponent implements OnChanges {
   }
 
   // Function used to compute url parameter in button "Ver todas as automatizações do....."
-  computeApiId(api_id) {
-    if (api_id != "popular") {
-      return api_id;
-    }
-    return null;
+  private _computeApiId(api_id) {
+    this.automationGroupService.computeApiId(api_id);
+  }
+
+  private _computeGenderLetter(name) {
+    return this.automationGroupService.computeGenderLetter(name);
   }
 }

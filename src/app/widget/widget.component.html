@@ -31,7 +31,7 @@
     </div>
 
     <!--</template>-->
-    <a class="button-all-autos  {{currentObject.app_id}}" target="_blank" href="https://pluga.co/ferramentas/{{computeApiId(currentObject.app_id)}}">Ver todas as automatizações do {{currentObject.name}}</a>
+    <a class="button-all-autos  {{currentObject.app_id}}" target="_blank" href="https://pluga.co/ferramentas/{{_computeApiId(currentObject.app_id)}}">Ver todas as automatizações d{{_computeGenderLetter(currentObject.name)}} {{currentObject.name}}</a>
     <div class="powered-by-pluga">
         <span>feito com <i class="fa fa-heart"></i> pela</span>
         <a href="https://pluga.co/" target="_blank">

@@ -36,6 +36,7 @@ export class AutomationGroup extends Object {
     }
 
 
+
     // constructor(public app_id?: string, public name?: string, public automationList?: Array<Object>) {
     //     super();
     //     this.app_id = app_id;

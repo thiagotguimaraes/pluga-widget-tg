@@ -10,6 +10,8 @@ import { AutomationGroup } from './model/entities/automation-group';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/switchMap';
+
 
 
 /*
@@ -25,19 +27,19 @@ import 'rxjs/add/operator/mergeMap';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  private data: Array<Object>;
-  private currentObject: AutomationGroup;
-  private dataLoaded: Boolean = false;
-  private targetObject: AutomationGroup;
-  private source: string;
-  private pageNotFound: Boolean;
-  private url: string = AppConstantService.API().MOCK.API_MOCK;
+  public data: Array<Object>;
+  public currentObject: AutomationGroup;
+  public dataLoaded: Boolean = false;
+  public targetObject: AutomationGroup;
+  public source: string;
+  public pageNotFound: Boolean;
+  public url: string = AppConstantService.API().MOCK.API_MOCK;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private appService: AppState
+    public route: ActivatedRoute,
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
+    public appService: AppState
   ) { }
 
   public ngOnInit() {
@@ -83,7 +85,6 @@ export class AppComponent implements OnInit {
   }
 
 
-
   private _dataDidLoaded(): Boolean {
     if (this.dataLoaded) {
       return true;
@@ -91,7 +92,6 @@ export class AppComponent implements OnInit {
       return false
     }
   }
-
 }
 
 

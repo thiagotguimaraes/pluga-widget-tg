@@ -27,9 +27,11 @@ import { AppState, InternalStateType } from './app.service';
 import { WidgetComponent } from './widget/widget.component';
 import { NoContentComponent } from './no-content';
 import { HttpService } from './service/http-service'
+import { AutomationGroupService } from './service/automation-group-service';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -62,7 +64,8 @@ type StoreType = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    HttpService
+    HttpService,
+    AutomationGroupService
   ]
 })
 export class AppModule {
