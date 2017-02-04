@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   public currentObject: AutomationGroup;
   public dataLoaded: Boolean = false;
   public targetObject: AutomationGroup;
-  public source: string;
+  public app_id: string;
   public pageNotFound: Boolean;
   public url: string = AppConstantService.API().MOCK.API_MOCK;
 
@@ -45,8 +45,8 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     this.router.events.map((event) => {
       if (event instanceof NavigationEnd) {
-        this.source = event.urlAfterRedirects.slice(1);
-        return this.source;
+        this.app_id = event.urlAfterRedirects.slice(1);
+        return this.app_id;
       }
       return null;
     }).subscribe((res) => {
@@ -73,7 +73,7 @@ export class AppComponent implements OnInit {
   private _getTargetAutomationGroup(data) {
     if (data) {
       for (let i = 0; i < data.length; i++) {
-        if (data[i]['app_id'] === this.source) {
+        if (data[i]['app_id'] === this.app_id) {
           this.targetObject = data[i];
           this.pageNotFound = false;
           break;

@@ -1,3 +1,55 @@
+### Code Explanation
+
+**src structure**
+
+ ├──src/                           
+     ├──index.html                             * Index.html: where we generate our index page
+     │
+     └──app/                                   * WebApp: folder
+         ├──app.component.html                 * Html structure of Parent component containing <router-outlet>
+         ├──app.component.ts                   * Parent component of the widget
+         ├──app.component.css                  * Parent component style sheet
+         ├──app.module.ts                      * Main entry point into Angular2's bootstraping process
+         ├──app.routes.ts                      * Parent component routes definition
+         ├──app.service.ts                     * Parent component service
+         ├──app.component.spec.ts              * a simple test of components in app.component.ts
+         │
+         ├──model/                             * Model folder
+         │    └──entities/                     * Entitiy folder
+         │         └──automation-group.ts/     * Main entity: Group of automations
+         │    
+         ├──no-content/                        * No-content folder
+         │    └──no-content.component.ts/      * No content component: 404 page
+         │         
+         │
+         ├──service/                           * Services folder
+         │    ├──app-constant-service.ts/      * Service used to store contants (mocks)
+         │    ├──automation-group-service.ts/  * Service used for automationGroup's purpose
+         │    └──http-service.ts/              * Service used to make http requests
+         │
+         │
+         └──widget/                            * Main child component folder (Widget Component)
+             ├──widget.component.css/          * Widget component style sheet
+             ├──widget.component.ts/           * Widget component controller
+             └──widget.component.html/         * Widget component html structure
+
+
+
+1 - app.component.ts on ngOnInit listen for router events
+2 - when navigation finishs app.component.ts looks for app_id 
+3 - app.component.ts then asks app.service to use http-service to request Pluga data
+4 - app.component.ts gets the target automation object and injects it in Widget component
+5 - Widget component perceives the injection and gets automationList array from the object injected
+6 - After that ngFor does the job creating as many automations as the list has and binding their data
+7 - Widget component uses automation-group-service to compute right gender for each automation group name and
+    bind the app_id for variable styling purpose
+8 - Style Variables are defined in styles/_variables.scss and automation classes in styles/styles.scss
+
+**PS: Router is using /#/ in URL but it can be removed in app.module.ts 
+    ---> RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+
+
+
 
 ### Quick start
 **Make sure you have Node version >= 5.0 and NPM >= 3**
